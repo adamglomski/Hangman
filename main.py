@@ -4,6 +4,103 @@ import random
 #Define constant for hidden letters
 hidden_letter = '_'
 
+
+hangman = (
+
+"""
+   _________
+    |/        
+    |              
+    |                
+    |                 
+    |               
+    |                   
+    |___                 
+    """,
+
+"""
+   _________
+    |/   |      
+    |              
+    |                
+    |                 
+    |               
+    |                   
+    |___                 
+    H""",
+
+"""
+   _________       
+    |/   |              
+    |   (_)
+    |                         
+    |                       
+    |                         
+    |                          
+    |___                       
+    HA""",
+
+"""
+   ________               
+    |/   |                   
+    |   (_)                  
+    |    |                     
+    |    |                    
+    |                           
+    |                            
+    |___                    
+    HAN""",
+
+
+"""
+   _________             
+    |/   |               
+    |   (_)                   
+    |   /|                     
+    |    |                    
+    |                        
+    |                          
+    |___                          
+    HANG""",
+
+
+"""
+   _________              
+    |/   |                     
+    |   (_)                     
+    |   /|\                    
+    |    |                       
+    |                             
+    |                            
+    |___                          
+    HANGM""",
+
+
+
+"""
+   ________                   
+    |/   |                         
+    |   (_)                      
+    |   /|\                             
+    |    |                          
+    |   /                            
+    |                                  
+    |___                              
+    HANGMA""",
+
+
+"""
+   ________
+    |/   |     
+    |   (_)    
+    |   /|\           
+    |    |        
+    |   / \        
+    |               
+    |___           
+    HANGMAN""")
+
+
 def welcome_message():
     print('Welcome in HANGMAN.')
 
@@ -51,7 +148,8 @@ def give_word_hidden(word):
 
 
 def tries_left_amount(word, counter):
-    amount = len(word) + 3 - counter
+    #amount = len(word) + 3 - counter
+    amount = 7 - counter
     return amount
 
 
@@ -151,6 +249,7 @@ def game():
                 lost_counter += 1
                 tries_counter += 1
                 print('Nope! Try Again:')
+                print(hangman[lost_counter-1])
                 print_word_after_guess(word_hidden)
             else:
                 tries_counter += 1
@@ -159,7 +258,8 @@ def game():
 
         else:
             print('\nSorry, you lost this time! :(')
-            print('The word was:')
+            print(hangman[lost_counter])
+            print('\nThe word was:')
             print_word_after_guess(the_word)
             return False
 
